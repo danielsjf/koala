@@ -122,6 +122,9 @@ class Test_Excel(unittest.TestCase):
         self.sp.set_value('Sheet1!A36', 0.5)
         self.assertEqual(self.sp.evaluate('Sheet1!A37'), 0.52)
 
+    def test_empty_cell_out_of_range(self):
+        self.assertEqual(self.sp.evaluate('Sheet1!G36'), None)
+
     def test_C37(self):
         self.sp.set_value('Sheet1!C36', 'David')
         self.assertEqual(self.sp.evaluate('Sheet1!C37'), 1)
